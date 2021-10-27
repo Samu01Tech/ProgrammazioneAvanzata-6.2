@@ -14,9 +14,6 @@ class Persona{
 
 class Student: public Persona{
     public:
-        Student():Persona(){
-
-        }
 };
 
 int main() {
