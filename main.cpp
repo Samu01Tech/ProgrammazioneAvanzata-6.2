@@ -6,20 +6,23 @@ class Persona{
         int age;
 
     public: 
+        Persona(){//necessario a causa del virtual
+            cout << "Creata Persona Vuota" << endl;
+        }
         Persona(int a){
             age = a;
             cout << "Creata Persona" << endl;
         }
 };
 
-class Student: public Persona{
+class Student: virtual public Persona{//evita la doppia invocazione
     public:
         Student(int x): Persona(x){
             cout << "Creato Studente (Specifico)" << endl;
         }
 };
 
-class Faculty: public Persona{
+class Faculty: virtual public Persona{//evita la doppia invocazione
     public: 
         Faculty(int x): Persona(x){
             cout << "Creato Faculty (Specifico)" << endl;
@@ -28,7 +31,7 @@ class Faculty: public Persona{
 
 class Ta: public Student, public Faculty{
     public: 
-        Ta(int x1, int x2): Faculty(x1), Student(x2){
+        Ta(int x1, int x2): Faculty(x1), Student(x2), Persona(x1){//va chiamato il costruttore Persona manualmente
             cout << "Creato Ta (Specifico)" << endl;
         }
 };
