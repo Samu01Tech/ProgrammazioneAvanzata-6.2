@@ -14,8 +14,25 @@ class Persona{
 
 class Student: public Persona{
     public:
+        Student(int x):Persona(x){
+            cout << "Creato Studente (Specifico)" << endl;
+        }
+};
+
+class Faculty: public Persona{
+    public: 
+        Faculty(int x):Persona(x){
+            cout << "Creato Faculty (Specifico)" << endl;
+        }
+};
+
+class Ta: public Student, public Faculty{
+    public: 
 };
 
 int main() {
-  cout << "Hello World!\n";
+    //Student s(12);
+    //Faculty f(99);
+    Ta ta;
+    return 0;
 } 
